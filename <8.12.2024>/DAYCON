@@ -1,0 +1,60 @@
+/**
+ *    author:  mr_sret
+ *    created: 4/12/2024 23:47:00
+**/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define db double
+#define vi vector<int>
+#define fl float
+#define int long long
+#define str string
+#define endl '\n'
+#define lb lower_bound
+#define ub upper_bound 
+#define pb push_back
+#define TIME 1.0 * clock() / CLOCKS_PER_SEC
+#define fr(i,a,b) for(ll i=a;i<=b;i++)
+#define frd(i,a,b) for(ll i=b;i>=a;i--)
+#define frn(i,a,b) for (ll i=a;i<b;i++)
+#define frdn(i,a,b) for(ll i=a;i>b;i++)
+#define PI M_PI
+#define agrimotor ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0);
+
+const ll N=1e6+5;
+const ll MOD=1e9+7; 
+ll a[N];
+void solve()
+{
+	int n, m;
+	cin>>n>>m;
+	for(int i = 1; i <= n; i++) {
+		cin>>a[i];
+	}
+	int l = 1;
+	int sum = 0;
+	int dem = 0;
+	for(int i = 1; i <= n; i++) {
+		sum += a[i];
+		while(sum > m and l <= i) {
+			sum -= a[l];
+			l++;
+		}
+		dem += i - l + 1;
+	}
+	cout<<dem;
+}
+signed main()
+{
+	// freopen("nhap.inp","r",stdin);
+	// freopen("nhap.out","w",stdout);
+	agrimotor
+    solve();
+	cerr << endl << "time : " << clock() << "ms" << endl;
+	return 0;
+}
+
+
