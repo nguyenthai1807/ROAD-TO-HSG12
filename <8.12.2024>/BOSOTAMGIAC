@@ -1,0 +1,76 @@
+/**
+ *    author:  mr_sret
+ *    created: 4/12/2024 23:47:00
+**/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define db double
+#define vi vector<int>
+#define fl float
+#define int long long
+#define str string
+#define endl '\n'
+#define lb lower_bound
+#define ub upper_bound 
+#define pb push_back
+#define TIME 1.0 * clock() / CLOCKS_PER_SEC
+#define fr(i,a,b) for(ll i=a;i<=b;i++)
+#define frd(i,a,b) for(ll i=b;i>=a;i--)
+#define frn(i,a,b) for (ll i=a;i<b;i++)
+#define frdn(i,a,b) for(ll i=a;i>b;i++)
+#define PI M_PI
+#define agrimotor ios_base::sync_with_stdio(0); cin.tie(0);cout.tie(0);
+
+const ll N=1e6+5;
+const ll MOD=1e9+7; 
+ll a[N];
+ll n;
+void solve()
+{
+	cin>>n;
+	fr(i,1,n){
+		cin>>a[i];
+	}
+}
+void sub1() 
+{
+	int dem = 0;
+	for(int i = 1; i <= n; i++) {
+		for(int j = i; j <= n; j++) {
+			for(int k = j; k <= n; k++) {
+				if(i <= k and j <= k and a[i] + a[j] <= a[k]) {
+					dem++;
+				}
+			}
+		}
+	}
+	cout<<dem;
+}
+sub2()
+{
+	ll dem = 0;
+	sort(a+1,a+n+1);
+	for(int i = 1; i <= n - 2; i++) {
+		for(int j = i + 1; j <= n - 1; j++) {
+			int sum = a[i] + a[j];
+			int ans = ub(a+j+1, a+n+1, sum - 1) - a;
+			dem += (ans - j - 1);
+		}
+	}
+	cout<<dem;
+}
+signed main()
+{
+	// freopen("nhap.inp","r",stdin);
+	// freopen("nhap.out","w",stdout);
+	agrimotor
+    solve();
+    sub2();
+	cerr << endl << "time : " << clock() << "ms" << endl;
+	return 0;
+}
+
+
